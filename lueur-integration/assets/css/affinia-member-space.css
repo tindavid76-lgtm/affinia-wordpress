@@ -1,0 +1,526 @@
+/* ==========================================================================
+   Lueur Rencontres — Espace membre Affinia
+   Stylise la sortie du plugin Affinia 0.13.x selon les maquettes Figma.
+   Utilise les custom properties de theme.json (v3).
+   ========================================================================== */
+
+/* --- Custom properties bridge Figma → Lueur --- */
+:root {
+  --lueur-sidebar-width: 258px;
+  --lueur-header-height: 64px;
+  --lueur-bottom-nav-height: 72px;
+  --lueur-radius-sm: 4px;
+  --lueur-radius-md: 8px;
+  --lueur-radius-lg: 16px;
+  --lueur-radius-xl: 20px;
+  --lueur-radius-pill: 999px;
+  --lueur-shadow-card: 0 2px 8px rgba(11, 29, 48, 0.06);
+  --lueur-shadow-md: 0 4px 12px rgba(11, 29, 48, 0.1);
+  --lueur-shadow-lg: 0 8px 24px rgba(11, 29, 48, 0.12);
+  --lueur-transition-fast: 150ms ease;
+  --lueur-transition-base: 250ms ease;
+}
+
+/* --- Affinia shell (wrapper injecté par affinia-adapter.php) --- */
+.affinia-shell {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: var(--wp--preset--spacing--50) var(--wp--preset--spacing--40);
+}
+
+/* --- Affinia Buttons --- */
+.affinia-btn,
+.affinia-shell .affinia-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 12px 24px;
+  font-family: var(--wp--preset--font-family--body);
+  font-size: 0.875rem;
+  font-weight: 600;
+  line-height: 1;
+  border: none;
+  border-radius: var(--lueur-radius-pill);
+  cursor: pointer;
+  transition: all var(--lueur-transition-fast);
+  text-decoration: none;
+}
+
+.affinia-btn-primary,
+.affinia-shell .wp-block-button__link {
+  background-color: var(--wp--preset--color--navy);
+  color: var(--wp--preset--color--white);
+}
+
+.affinia-btn-primary:hover,
+.affinia-shell .wp-block-button__link:hover {
+  background-color: var(--wp--preset--color--navy-deep);
+  color: var(--wp--preset--color--white);
+}
+
+.affinia-btn-accent {
+  background-color: var(--wp--preset--color--violet);
+  color: var(--wp--preset--color--white);
+}
+
+.affinia-btn-accent:hover {
+  background-color: #5e44a8;
+  color: var(--wp--preset--color--white);
+}
+
+.affinia-btn-ghost {
+  background-color: transparent;
+  color: var(--wp--preset--color--ink);
+  border: 1px solid rgba(38, 49, 60, 0.15);
+}
+
+.affinia-btn-ghost:hover {
+  background-color: rgba(38, 49, 60, 0.04);
+}
+
+/* --- Affinia Forms --- */
+.affinia-form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--wp--preset--spacing--40);
+}
+
+.affinia-field {
+  display: flex;
+  flex-direction: column;
+  gap: var(--wp--preset--spacing--20);
+}
+
+.affinia-field label {
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: var(--wp--preset--color--ink);
+}
+
+.affinia-field input[type="text"],
+.affinia-field input[type="email"],
+.affinia-field input[type="password"],
+.affinia-field input[type="number"],
+.affinia-field input[type="tel"],
+.affinia-field input[type="search"],
+.affinia-field textarea,
+.affinia-field select {
+  width: 100%;
+  padding: 12px 16px;
+  font-family: var(--wp--preset--font-family--body);
+  font-size: 0.875rem;
+  color: var(--wp--preset--color--ink);
+  background: var(--wp--preset--color--white);
+  border: 1px solid rgba(38, 49, 60, 0.15);
+  border-radius: var(--lueur-radius-md);
+  outline: none;
+  transition: border-color var(--lueur-transition-fast), box-shadow var(--lueur-transition-fast);
+}
+
+.affinia-field input:focus,
+.affinia-field textarea:focus,
+.affinia-field select:focus {
+  border-color: var(--wp--preset--color--violet);
+  box-shadow: 0 0 0 3px rgba(117, 89, 199, 0.12);
+}
+
+.affinia-field input::placeholder {
+  color: #8B9099;
+}
+
+/* --- Members Grid (Découverte & Favoris) --- */
+.affinia-members-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: var(--wp--preset--spacing--50);
+}
+
+.affinia-members-grid .affinia-member-card {
+  background: var(--wp--preset--color--white);
+  border-radius: var(--lueur-radius-lg);
+  overflow: hidden;
+  box-shadow: var(--lueur-shadow-card);
+  transition: transform var(--lueur-transition-base), box-shadow var(--lueur-transition-base);
+}
+
+.affinia-members-grid .affinia-member-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--lueur-shadow-lg);
+}
+
+.affinia-member-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.affinia-member-card .affinia-member-info {
+  padding: var(--wp--preset--spacing--40);
+}
+
+.affinia-member-card .affinia-member-name {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--wp--preset--color--ink);
+}
+
+.affinia-member-card .affinia-member-meta {
+  font-size: 0.75rem;
+  color: #8B9099;
+  margin-top: var(--wp--preset--spacing--20);
+}
+
+.affinia-member-card .affinia-member-actions {
+  display: flex;
+  gap: var(--wp--preset--spacing--20);
+  padding: var(--wp--preset--spacing--40);
+  border-top: 1px solid rgba(38, 49, 60, 0.06);
+}
+
+/* --- Advanced Search --- */
+.affinia-advanced-search {
+  background: var(--wp--preset--color--white);
+  border-radius: var(--lueur-radius-xl);
+  padding: var(--wp--preset--spacing--60);
+  box-shadow: var(--lueur-shadow-card);
+}
+
+.affinia-search-fields {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: var(--wp--preset--spacing--40);
+  margin-bottom: var(--wp--preset--spacing--50);
+}
+
+/* --- Plans / Abonnement --- */
+.affinia-plans-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: var(--wp--preset--spacing--50);
+}
+
+.affinia-plan-card {
+  background: var(--wp--preset--color--white);
+  border-radius: var(--lueur-radius-xl);
+  padding: var(--wp--preset--spacing--60);
+  box-shadow: var(--lueur-shadow-card);
+  text-align: center;
+  transition: box-shadow var(--lueur-transition-base);
+}
+
+.affinia-plan-card:hover {
+  box-shadow: var(--lueur-shadow-lg);
+}
+
+.affinia-plan-card.recommended {
+  border: 2px solid var(--wp--preset--color--violet);
+}
+
+/* --- Notifications --- */
+.affinia-notifications .affinia-notification-item {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--wp--preset--spacing--40);
+  padding: var(--wp--preset--spacing--40);
+  border-bottom: 1px solid rgba(38, 49, 60, 0.06);
+  transition: background var(--lueur-transition-fast);
+}
+
+.affinia-notifications .affinia-notification-item.unread {
+  background: rgba(117, 89, 199, 0.06);
+}
+
+.affinia-notification-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.affinia-notification-icon.match { background: var(--wp--preset--color--coral-soft); }
+.affinia-notification-icon.message { background: rgba(117, 89, 199, 0.1); }
+.affinia-notification-icon.visit { background: rgba(200, 165, 90, 0.15); }
+
+.affinia-notification-text {
+  font-size: 0.875rem;
+  line-height: 1.4;
+}
+
+.affinia-notification-time {
+  font-size: 0.6875rem;
+  color: #8B9099;
+  margin-top: var(--wp--preset--spacing--20);
+}
+
+/* --- Chat / Messagerie --- */
+.affinia-shell .affinia-chat-window {
+  display: flex;
+  flex-direction: column;
+  height: calc(100vh - 200px);
+  background: var(--wp--preset--color--white);
+  border-radius: var(--lueur-radius-xl);
+  overflow: hidden;
+}
+
+.affinia-chat-header {
+  display: flex;
+  align-items: center;
+  gap: var(--wp--preset--spacing--40);
+  padding: var(--wp--preset--spacing--40) var(--wp--preset--spacing--50);
+  border-bottom: 1px solid rgba(38, 49, 60, 0.06);
+}
+
+.affinia-chat-messages {
+  flex: 1;
+  overflow-y: auto;
+  padding: var(--wp--preset--spacing--50);
+  display: flex;
+  flex-direction: column;
+  gap: var(--wp--preset--spacing--40);
+}
+
+.affinia-chat-bubble {
+  max-width: 70%;
+  padding: var(--wp--preset--spacing--40);
+  border-radius: var(--lueur-radius-lg);
+  font-size: 0.875rem;
+  line-height: 1.5;
+}
+
+.affinia-chat-bubble.sent {
+  background: var(--wp--preset--color--navy);
+  color: var(--wp--preset--color--white);
+  align-self: flex-end;
+  border-bottom-right-radius: var(--lueur-radius-sm);
+}
+
+.affinia-chat-bubble.received {
+  background: var(--wp--preset--color--mist);
+  color: var(--wp--preset--color--ink);
+  align-self: flex-start;
+  border-bottom-left-radius: var(--lueur-radius-sm);
+}
+
+.affinia-chat-input-area {
+  display: flex;
+  align-items: center;
+  gap: var(--wp--preset--spacing--20);
+  padding: var(--wp--preset--spacing--40) var(--wp--preset--spacing--50);
+  border-top: 1px solid rgba(38, 49, 60, 0.06);
+}
+
+.affinia-chat-input {
+  flex: 1;
+  padding: 12px 16px;
+  background: var(--wp--preset--color--mist);
+  border: none;
+  border-radius: var(--lueur-radius-pill);
+  font-family: var(--wp--preset--font-family--body);
+  font-size: 0.875rem;
+  outline: none;
+}
+
+/* --- Account / Profil & Paramètres --- */
+.affinia-shell .affinia-account-section {
+  background: var(--wp--preset--color--white);
+  border-radius: var(--lueur-radius-xl);
+  padding: var(--wp--preset--spacing--60);
+  margin-bottom: var(--wp--preset--spacing--50);
+}
+
+.affinia-account-section h2 {
+  font-size: 1rem;
+  font-family: var(--wp--preset--font-family--body);
+  font-weight: 600;
+  margin-bottom: var(--wp--preset--spacing--50);
+  padding-bottom: var(--wp--preset--spacing--40);
+  border-bottom: 1px solid rgba(38, 49, 60, 0.06);
+}
+
+.affinia-settings-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--wp--preset--spacing--40) 0;
+  border-bottom: 1px solid rgba(38, 49, 60, 0.04);
+}
+
+.affinia-settings-row:last-child {
+  border-bottom: none;
+}
+
+.affinia-settings-label {
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+.affinia-settings-description {
+  font-size: 0.75rem;
+  color: #8B9099;
+  margin-top: var(--wp--preset--spacing--20);
+}
+
+/* --- Progress bar (complétion profil) --- */
+.affinia-progress-bar {
+  width: 100%;
+  height: 4px;
+  background: rgba(117, 89, 199, 0.15);
+  border-radius: var(--lueur-radius-sm);
+  overflow: hidden;
+}
+
+.affinia-progress-bar-fill {
+  height: 100%;
+  background: var(--wp--preset--color--violet);
+  border-radius: var(--lueur-radius-sm);
+  transition: width 400ms ease;
+}
+
+/* --- Badges / Pills --- */
+.affinia-shell .affinia-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px 12px;
+  font-size: 0.6875rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  border-radius: var(--lueur-radius-pill);
+}
+
+.affinia-badge-accent { background: rgba(117, 89, 199, 0.1); color: var(--wp--preset--color--violet); }
+.affinia-badge-success { background: rgba(200, 165, 90, 0.15); color: #8B6914; }
+.affinia-badge-alert { background: var(--wp--preset--color--coral-soft); color: var(--wp--preset--color--coral); }
+
+/* --- Security card --- */
+.affinia-shell .affinia-security-card {
+  background: rgba(200, 165, 90, 0.1);
+  border-radius: var(--lueur-radius-lg);
+  padding: var(--wp--preset--spacing--50);
+}
+
+.affinia-security-card h3 {
+  font-family: var(--wp--preset--font-family--body);
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: var(--wp--preset--spacing--30);
+}
+
+.affinia-security-card ul {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--wp--preset--spacing--20);
+}
+
+.affinia-security-card li::before {
+  content: '\2713';
+  color: var(--wp--preset--color--gold);
+  font-weight: 700;
+  margin-right: 0.5rem;
+}
+
+/* --- Empty states --- */
+.affinia-shell .affinia-empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: var(--wp--preset--spacing--70) var(--wp--preset--spacing--60);
+  text-align: center;
+  gap: var(--wp--preset--spacing--40);
+}
+
+.affinia-empty-state-icon {
+  width: 80px;
+  height: 80px;
+  background: rgba(117, 89, 199, 0.08);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+}
+
+/* --- Toggle switch --- */
+.affinia-toggle {
+  position: relative;
+  width: 44px;
+  height: 24px;
+  background: rgba(38, 49, 60, 0.15);
+  border-radius: var(--lueur-radius-pill);
+  cursor: pointer;
+  transition: background var(--lueur-transition-fast);
+}
+
+.affinia-toggle.is-active {
+  background: var(--wp--preset--color--violet);
+}
+
+.affinia-toggle::after {
+  content: '';
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 20px;
+  height: 20px;
+  background: var(--wp--preset--color--white);
+  border-radius: 50%;
+  transition: transform var(--lueur-transition-fast);
+}
+
+.affinia-toggle.is-active::after {
+  transform: translateX(20px);
+}
+
+/* ==========================================================================
+   Responsive
+   ========================================================================== */
+
+@media (max-width: 768px) {
+  .affinia-shell {
+    padding: var(--wp--preset--spacing--40) var(--wp--preset--spacing--30);
+    padding-bottom: calc(var(--lueur-bottom-nav-height) + var(--wp--preset--spacing--50));
+  }
+
+  .affinia-members-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--wp--preset--spacing--40);
+  }
+
+  .affinia-search-fields {
+    grid-template-columns: 1fr;
+  }
+
+  .affinia-plans-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .affinia-chat-window {
+    border-radius: 0;
+    height: calc(100vh - var(--lueur-header-height) - var(--lueur-bottom-nav-height));
+  }
+
+  .affinia-settings-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--wp--preset--spacing--20);
+  }
+
+  .affinia-account-section {
+    padding: var(--wp--preset--spacing--40);
+    border-radius: var(--lueur-radius-lg);
+  }
+}
+
+@media (max-width: 430px) {
+  .affinia-members-grid {
+    grid-template-columns: 1fr;
+  }
+}

@@ -1,0 +1,122 @@
+/* ==========================================================================
+   Lueur Rencontres — Pages Auth (Inscription & Connexion)
+   Stylise les formulaires Affinia sur les pages d'authentification.
+   ========================================================================== */
+
+/* Pages inscription & connexion */
+body.page-template-default.page-slug-inscription .affinia-shell,
+body.page-template-default.page-slug-connexion .affinia-shell,
+body.page-slug-inscription .affinia-shell,
+body.page-slug-connexion .affinia-shell {
+  max-width: 480px;
+  margin: var(--wp--preset--spacing--70) auto;
+}
+
+.affinia-shell .affinia-form {
+  background: var(--wp--preset--color--white);
+  border-radius: var(--lueur-radius-xl, 20px);
+  padding: var(--wp--preset--spacing--60);
+  box-shadow: var(--lueur-shadow-lg, 0 8px 24px rgba(11,29,48,0.12));
+}
+
+.affinia-shell .affinia-form h1,
+.affinia-shell .affinia-form h2 {
+  text-align: center;
+  font-family: var(--wp--preset--font-family--display);
+  margin-bottom: var(--wp--preset--spacing--20);
+}
+
+.affinia-shell .affinia-form .affinia-form-subtitle {
+  text-align: center;
+  font-size: 0.875rem;
+  color: #8B9099;
+  margin-bottom: var(--wp--preset--spacing--50);
+}
+
+/* Steps indicator (inscription multi-étapes) */
+.affinia-steps {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: var(--wp--preset--spacing--60);
+}
+
+.affinia-step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  opacity: 0.4;
+  transition: opacity 250ms ease;
+}
+
+.affinia-step.is-active { opacity: 1; }
+
+.affinia-step-number {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: var(--wp--preset--color--mist);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  font-size: 0.8125rem;
+}
+
+.affinia-step.is-active .affinia-step-number {
+  background: var(--wp--preset--color--violet);
+  color: var(--wp--preset--color--white);
+}
+
+.affinia-step.is-complete .affinia-step-number {
+  background: rgba(200, 165, 90, 0.15);
+  color: #8B6914;
+}
+
+.affinia-step-label {
+  font-size: 0.6875rem;
+  font-weight: 500;
+}
+
+.affinia-step-line {
+  width: 60px;
+  height: 2px;
+  background: rgba(38, 49, 60, 0.1);
+  margin: 0 var(--wp--preset--spacing--20);
+  margin-bottom: 20px;
+}
+
+.affinia-step-line.is-active {
+  background: var(--wp--preset--color--violet);
+}
+
+.affinia-auth-footer {
+  text-align: center;
+  font-size: 0.875rem;
+  color: #8B9099;
+  margin-top: var(--wp--preset--spacing--60);
+}
+
+.affinia-auth-footer a {
+  color: var(--wp--preset--color--violet);
+}
+
+/* Interests grid (inscription étape 3) */
+.affinia-interests-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--wp--preset--spacing--20);
+}
+
+@media (max-width: 480px) {
+  body.page-slug-inscription .affinia-shell,
+  body.page-slug-connexion .affinia-shell {
+    margin: var(--wp--preset--spacing--50) var(--wp--preset--spacing--30);
+  }
+
+  .affinia-shell .affinia-form {
+    padding: var(--wp--preset--spacing--50);
+    border-radius: var(--lueur-radius-lg, 16px);
+  }
+}
