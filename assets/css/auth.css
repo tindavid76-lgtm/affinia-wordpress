@@ -1,0 +1,135 @@
+/* ==========================================================================
+   Affinia — Pages Auth (Inscription & Connexion)
+   ========================================================================== */
+
+.auth-layout {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--affinia-cream);
+  padding: var(--space-xl);
+}
+
+.auth-card {
+  width: 100%;
+  max-width: 480px;
+  background: var(--affinia-white);
+  border-radius: var(--radius-xl);
+  padding: var(--space-2xl);
+  box-shadow: var(--shadow-lg);
+}
+
+.auth-header {
+  text-align: center;
+  margin-bottom: var(--space-xl);
+}
+
+.auth-header .site-logo {
+  display: inline-flex;
+  margin-bottom: var(--space-lg);
+}
+
+.auth-header .logo-icon {
+  width: 48px;
+  height: 48px;
+  font-size: 1.25rem;
+}
+
+.auth-header h1 {
+  margin-bottom: var(--space-sm);
+}
+
+.auth-form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+/* Steps indicator */
+.auth-steps {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+  margin-bottom: var(--space-xl);
+}
+
+.auth-step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-xs);
+  opacity: 0.4;
+  transition: opacity var(--transition-base);
+}
+
+.auth-step.is-active {
+  opacity: 1;
+}
+
+.auth-step-number {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: var(--affinia-cream);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: var(--font-weight-semibold);
+  font-size: 0.8125rem;
+}
+
+.auth-step.is-active .auth-step-number {
+  background: var(--affinia-violet);
+  color: var(--affinia-text-on-dark);
+}
+
+.auth-step.is-complete .auth-step-number {
+  background: var(--affinia-green-light-bg);
+  color: var(--affinia-green-dark);
+}
+
+.auth-step-label {
+  font-size: 0.6875rem;
+  font-weight: var(--font-weight-medium);
+}
+
+.auth-step-line {
+  width: 60px;
+  height: 2px;
+  background: rgba(33, 24, 44, 0.1);
+  margin: 0 var(--space-sm);
+  margin-bottom: 20px;
+}
+
+.auth-step-line.is-active {
+  background: var(--affinia-violet);
+}
+
+.auth-footer {
+  text-align: center;
+  font-size: 0.875rem;
+  color: var(--affinia-text-secondary);
+  margin-top: var(--space-xl);
+}
+
+.interests-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-sm);
+}
+
+/* Responsive auth */
+@media (max-width: 480px) {
+  .auth-layout {
+    padding: var(--space-md);
+    align-items: flex-start;
+    padding-top: var(--space-2xl);
+  }
+
+  .auth-card {
+    padding: var(--space-lg);
+    border-radius: var(--radius-lg);
+  }
+}
