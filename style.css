@@ -1,0 +1,168 @@
+/*
+Theme Name: Affinia
+Theme URI: https://www.elegancerencontre.com
+Author: Élégance Rencontre
+Author URI: https://www.elegancerencontre.com
+Description: Thème premium pour Élégance Rencontre / Affinia — plateforme de rencontre haut de gamme. Design system aubergine, violet, lime avec typographie Manrope.
+Version: 1.0.0
+Requires at least: 6.0
+Tested up to: 6.5
+Requires PHP: 8.0
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Text Domain: affinia
+Tags: dating, premium, custom-colors, custom-menu, featured-images, threaded-comments, translation-ready
+*/
+
+/* ==========================================================================
+   Design Tokens — Affinia Design System
+   ========================================================================== */
+
+:root {
+  /* --- Couleurs principales --- */
+  --affinia-aubergine: #21182C;
+  --affinia-violet: #6D3BD1;
+  --affinia-violet-hover: #5A2FB5;
+  --affinia-lime: #AFDC5B;
+  --affinia-lime-hover: #9BCF3E;
+  --affinia-cream: #F6F3ED;
+  --affinia-lavender: #F1EAFB;
+  --affinia-white: #FFFFFF;
+
+  /* --- Couleurs texte --- */
+  --affinia-text-primary: #241F2D;
+  --affinia-text-secondary: #63596E;
+  --affinia-text-tertiary: #6D6675;
+  --affinia-text-on-dark: #FFFFFF;
+  --affinia-text-muted-on-dark: #CFC5D8;
+
+  /* --- Couleurs fonctionnelles --- */
+  --affinia-rose: #EC6D91;
+  --affinia-amber-bg: #FFF2D1;
+  --affinia-amber-text: #5E3C07;
+  --affinia-green-dark: #426D16;
+  --affinia-green-light-bg: #E9F7D7;
+  --affinia-error: #D32F2F;
+  --affinia-success: #426D16;
+
+  /* --- Rayons --- */
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 16px;
+  --radius-xl: 20px;
+  --radius-pill: 999px;
+
+  /* --- Espacement --- */
+  --space-xs: 4px;
+  --space-sm: 8px;
+  --space-md: 16px;
+  --space-lg: 24px;
+  --space-xl: 32px;
+  --space-2xl: 48px;
+  --space-3xl: 64px;
+
+  /* --- Typographie --- */
+  --font-family: 'Manrope', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-weight-light: 300;
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+  --font-weight-extrabold: 800;
+
+  /* --- Ombres --- */
+  --shadow-sm: 0 1px 3px rgba(33, 24, 44, 0.08);
+  --shadow-md: 0 4px 12px rgba(33, 24, 44, 0.1);
+  --shadow-lg: 0 8px 24px rgba(33, 24, 44, 0.12);
+  --shadow-card: 0 2px 8px rgba(33, 24, 44, 0.06);
+
+  /* --- Transitions --- */
+  --transition-fast: 150ms ease;
+  --transition-base: 250ms ease;
+  --transition-slow: 400ms ease;
+
+  /* --- Layout --- */
+  --sidebar-width: 258px;
+  --header-height: 64px;
+  --bottom-nav-height: 72px;
+  --content-max-width: 1460px;
+  --mobile-width: 430px;
+}
+
+/* ==========================================================================
+   Reset & Base
+   ========================================================================== */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: var(--font-family);
+  font-weight: var(--font-weight-regular);
+  color: var(--affinia-text-primary);
+  background-color: var(--affinia-cream);
+  line-height: 1.5;
+}
+
+a {
+  color: var(--affinia-violet);
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+a:hover {
+  color: var(--affinia-violet-hover);
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* ==========================================================================
+   Typographie
+   ========================================================================== */
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: var(--font-weight-extrabold);
+  color: var(--affinia-text-primary);
+  line-height: 1.2;
+}
+
+h1 { font-size: 2rem; }
+h2 { font-size: 1.5rem; }
+h3 { font-size: 1.25rem; }
+h4 { font-size: 1.125rem; }
+h5 { font-size: 1rem; }
+h6 { font-size: 0.875rem; }
+
+.text-eyebrow {
+  font-size: 0.6875rem;
+  font-weight: var(--font-weight-semibold);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--affinia-text-tertiary);
+}
+
+.text-body {
+  font-size: 0.875rem;
+  font-weight: var(--font-weight-regular);
+  color: var(--affinia-text-secondary);
+}
+
+.text-caption {
+  font-size: 0.75rem;
+  color: var(--affinia-text-tertiary);
+}
